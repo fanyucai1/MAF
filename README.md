@@ -1,4 +1,4 @@
-中国人群频率数据库：https://db.cngb.org/cmdb/
+华大中国人群频率数据库：https://db.cngb.org/cmdb/
 
 注释分析工具：https://github.com/ShujiaHuang/cmdbtools
 
