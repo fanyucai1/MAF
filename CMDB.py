@@ -2,16 +2,17 @@ import requests
 import demjson
 import os
 from pathos.pools import ProcessPool
-key=''######you want to input
+#################################################as follows you want to input
+yourbed=''
+yourkey=''
 ################################################
 if not os.path.exists("CMDB.tsv"):
     outfile = open("CMDB.tsv", "w")
     outfile.write("#Chr\tPos\tID\tRef\tAlt\tallele_count\tallele_freq\n")
     outfile.close()
 def run(chr,pos):
-    html = 'http://db.cngb.org/cmdb/api/v1.0/variant?type=position&query=%s-%s&token=%s'%(chr,pos,key)
+    html = 'http://db.cngb.org/cmdb/api/v1.0/variant?type=position&query=%s-%s&token=%s'%(chr,pos,yourkey)
     try:
-        #res = requests.get(html,proxies={"http":"http://61.145.8.172:9999"})
         res = requests.get(html)
         ret = demjson.decode(res.text)
         print(ret)
@@ -23,7 +24,8 @@ def run(chr,pos):
     except:
         pass
 if __name__=="__main__":
-    infile = open("tmp.bed", "r")
+
+    infile = open(yourbed, "r")
     infile2=open("CMDB.tsv", "r")
     site={}
     for line in infile2:
